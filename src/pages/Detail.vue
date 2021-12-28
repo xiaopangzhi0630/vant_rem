@@ -1,41 +1,19 @@
 <template>
   <div>
-    <van-skeleton
-      title
-      :row="5"
-      v-if="newsInfo === null"
-    />
-    <div
-      class="content"
-      v-else
-      v-html="newsInfo.body"
-    ></div>
+    <van-skeleton title :row="5" v-if="newsInfo === null" />
+    <div class="content" v-else v-html="newsInfo.body"></div>
     <div class="nav-box">
-      <van-icon
-        name="arrow-left"
-        @click="handle"
-      ></van-icon>
-      <van-icon
-        name="comment-o"
-        :badge="comments"
-      ></van-icon>
-      <van-icon
-        name="good-job-o"
-        :badge="popularity"
-      ></van-icon>
+      <van-icon name="arrow-left" @click="handle"></van-icon>
+      <van-icon name="comment-o" :badge="comments"></van-icon>
+      <van-icon name="good-job-o" :badge="popularity"></van-icon>
       <!-- <van-icon
       name="star-o"
       :color="isStore ? '#1989fa' : '#000'"
       @click="storeHandle"
     ></van-icon> -->
-      <van-icon
-        name="share-o"
-        color="#ccc"
-      ></van-icon>
+      <van-icon name="share-o" color="#ccc"></van-icon>
     </div>
-
   </div>
-
 </template>
 
 <script>

@@ -1,27 +1,13 @@
 <template>
   <div>
     <!-- 头部 -->
-
     <Head :time="today" />
     <!-- 轮播图 -->
     <section class="banner-box">
-      <van-swipe
-        v-if="bannerList.length > 0"
-        autoplay="3000"
-        lazy-render
-      >
-        <van-swipe-item
-          v-for="item in bannerList"
-          :key="item.id"
-        >
-          <router-link
-            :to="`/detail/${item.id}`"
-            class="content"
-          >
-            <img
-              :src="item.image"
-              alt=""
-            />
+      <van-swipe v-if="bannerList.length > 0" autoplay="3000" lazy-render>
+        <van-swipe-item v-for="item in bannerList" :key="item.id">
+          <router-link :to="`/detail/${item.id}`" class="content">
+            <img :src="item.image" alt="" />
             <div class="mark">
               <h3 class="title">{{ item.title }}</h3>
               <span class="tip">{{ item.hint }}</span>
@@ -31,41 +17,21 @@
       </van-swipe>
     </section>
     <!-- 新闻列表 -->
-    <van-skeleton
-      title
-      :row="5"
-      v-if="newsList.length === 0"
-    ></van-skeleton>
+    <van-skeleton title :row="5" v-if="newsList.length === 0"></van-skeleton>
     <div v-else>
-      <section
-        class="news-box"
-        v-for="(item, index) in newsList"
-        :key="index"
-      >
-        <van-divider
-          content-position="left"
-          v-if="index !== 0"
-        >
+      <section class="news-box" v-for="(item, index) in newsList" :key="index">
+        <van-divider content-position="left" v-if="index !== 0">
           {{ formatTime(item.date, "{1}月{2}日") }}
         </van-divider>
         <div class="content">
-          <Item
-            v-for="item2 in item.stories"
-            :key="item2.id"
-            :data="item2"
-          />
+          <Item v-for="item2 in item.stories" :key="item2.id" :data="item2" />
         </div>
       </section>
     </div>
-    <div
-      class="lazy-more"
-      v-show="newsList.length !== 0"
-      ref="loadMore"
-    >
+    <div class="lazy-more" v-show="newsList.length !== 0" ref="loadMore">
       <van-loading size="12px">小主，精彩数据准备中...</van-loading>
     </div>
   </div>
-
 </template>
 
 <script>
