@@ -2,7 +2,7 @@ import axios from "axios";
 import qs from 'qs';
 import { isPlainObject } from '@/assets/utils';
 import { Notify } from 'vant';
-// import md5 from 'blueimp-md5';
+import md5 from 'blueimp-md5'; 
 axios.defaults.baseURL = '';
 axios.defaults.timeout = 60000;
 axios.defaults.transformRequest = data => {

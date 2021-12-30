@@ -57,7 +57,7 @@ export default {
     fm.append("file", file);
     return axios.post('/api/user_update', fm);
   },
-  // 收藏
+  // 收藏  
   store(newsId) {
     return axios.post('/api/store', {
       newsId
