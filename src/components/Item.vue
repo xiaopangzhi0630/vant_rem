@@ -10,7 +10,6 @@
       </div>
       <h4 class="title">{{ data.title }}</h4>
       <p class="desc">{{ data.hint }}</p>
-      
     </router-link>
   </div>
 </template>
@@ -25,7 +24,7 @@ export default {
     },
   },
   setup(props) {
-console.log('222', props.data);
+    console.log("222", props.data);
   },
 };
 </script>
