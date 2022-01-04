@@ -52,6 +52,7 @@ export default {
   },
   // 修改用户信息
   userUpdate(username, file) {
+    console.log('file', file);
     let fm = new FormData();
     fm.append("username", username);
     fm.append("file", file);
